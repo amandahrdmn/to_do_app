@@ -12,4 +12,8 @@ return function (App $app) {
         return $renderer->render($response, "index.php", $args);
     });
 
+    $app->get('/to_do', 'ToDoPageController');
+    $app->post('/add_entry', 'CreateToDoController');
+    $app->post('/complete_entry', 'MarkToDoAsCompletedController');
+    $app->post('/delete_entry', 'MarkToDoAsDeletedController');
 };

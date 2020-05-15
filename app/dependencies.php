@@ -33,5 +33,15 @@ return function (ContainerBuilder $containerBuilder) {
         return $renderer;
     };
 
+    $container['DBUtility'] = new App\Utilities\DBConnectionUtility();
+
+    $container['LengthValidator'] = new App\Validators\ToDoLengthValidator();
+
+    $container['ToDoModel'] = DI\factory('App\Factories\ToDoModelFactory');
+    $container['CreateToDoController'] = DI\factory('App\Factories\CreateToDoControllerFactory');
+    $container['ToDoPageController'] = DI\factory('App\Factories\ToDoPageControllerFactory');
+    $container['MarkToDoAsCompletedController'] = DI\factory('App\Factories\MarkToDoAsCompletedFactory');
+    $container['MarkToDoAsDeletedController'] = DI\factory('App\Factories\MarkToDoAsDeletedFactory');
+
     $containerBuilder->addDefinitions($container);
 };
